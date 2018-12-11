@@ -79,8 +79,6 @@ else
   /bin/sed -i "s/{{SYNC}}/sync/g" /etc/exports
 fi
 
-sleep 500
-
 # Partially set 'unofficial Bash Strict Mode' as described here: http://redsymbol.net/articles/unofficial-bash-strict-mode/
 # We don't set -e because the pidof command returns an exit code of 1 when the specified process is not found
 # We expect this at times and don't want the script to be terminated when it occurs
