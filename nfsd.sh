@@ -40,6 +40,12 @@ if [ ! -z "${SHARED_DIRECTORY_2}" ]; then
   /bin/sed -i "s@{{SHARED_DIRECTORY_2}}@${SHARED_DIRECTORY_2}@g" /etc/exports
 fi
 
+if [ ! -z "${SHARED_DIRECTORY_3}" ]; then
+  echo "Writing SHARED_DIRECTORY_3 to /etc/exports file"
+  echo "{{SHARED_DIRECTORY_3}} {{PERMITTED}}({{READ_ONLY}},{{SYNC}},no_subtree_check,no_auth_nlm,insecure,no_root_squash)" >> /etc/exports
+  /bin/sed -i "s@{{SHARED_DIRECTORY_3}}@${SHARED_DIRECTORY_3}@g" /etc/exports
+fi
+
 # Check if the PERMITTED variable is empty
 if [ -z "${PERMITTED}" ]; then
   echo "The PERMITTED environment variable is unset or null, defaulting to '*'."
